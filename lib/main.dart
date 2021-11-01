@@ -115,19 +115,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String _getButtonText() {
     switch (gameState) {
       case GameState.readyToStart:
-        setState(() {
-          bgColorBtn=0xFF40CA88;
-        });
         return 'START';
       case GameState.waiting:
-        setState(() {
-          bgColorBtn=0xFFE0982D;
-        });
         return 'WAIT';
       case GameState.cantBeStopped:
-        setState(() {
-          bgColorBtn=0xFFE02D47;
-        });
         return "STOP";
     }
   }
