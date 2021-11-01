@@ -27,6 +27,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String mls = "";
+  int bgColorBtn = 0xFF40CA88;
   GameState gameState = GameState.readyToStart;
 
   Timer? witingTimer;
@@ -35,24 +36,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF282E3D),
       body: Stack(
         children: [
           Align(
-            alignment: Alignment(0, -0.9),
+            alignment: Alignment(0, -0.8),
             child: Text(
               'Test your\nreaction speed',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.yellow),
+                  fontSize: 38,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
             ),
           ),
           Align(
             alignment: Alignment.center,
             child: ColoredBox(
-              color: Colors.white,
+              color: Color(0xFF6D6D6D),
               child: SizedBox(
                 height: 150,
                 width: 300,
@@ -61,16 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     mls,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
+                        fontSize: 37,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white),
                   ),
                 ),
               ),
             ),
           ),
           Align(
-            alignment: Alignment(0, 0.9),
+            alignment: Alignment(0, 0.8),
             child: GestureDetector(
               onTap: () => setState(() {
                 switch (gameState) {
@@ -82,13 +83,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   case GameState.waiting:
                     break;
                   case GameState.cantBeStopped:
+
                     gameState = GameState.readyToStart;
                     stoppblTimer?.cancel();
                     break;
                 }
               }),
               child: ColoredBox(
-                color: Colors.white70,
+                color: Color(_getButtonBgColor()),
                 child: SizedBox(
                   width: 200,
                   height: 100,
@@ -96,9 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(
                       _getButtonText(),
                       style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green),
+                          fontSize: 38,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white),
                     ),
                   ),
                 ),
@@ -113,11 +115,31 @@ class _MyHomePageState extends State<MyHomePage> {
   String _getButtonText() {
     switch (gameState) {
       case GameState.readyToStart:
+        setState(() {
+          bgColorBtn=0xFF40CA88;
+        });
         return 'START';
       case GameState.waiting:
+        setState(() {
+          bgColorBtn=0xFFE0982D;
+        });
         return 'WAIT';
       case GameState.cantBeStopped:
+        setState(() {
+          bgColorBtn=0xFFE02D47;
+        });
         return "STOP";
+    }
+  }
+
+  int _getButtonBgColor() {
+    switch (gameState) {
+      case GameState.readyToStart:
+        return 0xFF40CA88;
+      case GameState.waiting:
+        return 0xFFE0982D;
+      case GameState.cantBeStopped:
+        return 0xFFE02D47;
     }
   }
 
