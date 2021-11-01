@@ -1,4 +1,4 @@
-# flutter_push2
+# flutter_push
 
 A new Flutter project.
 
