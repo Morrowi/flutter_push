@@ -1,4 +1,4 @@
-package ru.redz.flutter_push2
+package ru.redz.flutter_push
 
 import io.flutter.embedding.android.FlutterActivity
 

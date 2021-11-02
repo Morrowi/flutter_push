@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.redz.flutter_push2">
+    package="ru.redz.flutter_push">
    <application
-        android:label="flutter_push2"
+        android:label="flutter_push"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
