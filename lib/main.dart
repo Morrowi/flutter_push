@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     mls,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 37,
+                        fontSize: 36,
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
